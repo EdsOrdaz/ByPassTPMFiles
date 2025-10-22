@@ -21,12 +21,12 @@ set "paths=%TEMP% %WINDIR%\Temp %SystemRoot%\SoftwareDistribution\Download %Syst
 for %%p in (%paths%) do (
     rd /s /q "%%p" >nul 2>&1
     md "%%p" >nul 2>&1
-    echo Limp: %%p
+    echo Limpiando: %%p
 )
 
 for /F "tokens=*" %%G in ('wevtutil.exe el') DO (
     wevtutil.exe cl "%%G" >nul 2>&1
-    echo Log: %%G
+    echo Limpiando: %%G
 )
 
 exit
@@ -35,5 +35,6 @@ exit
 echo Run as admin
 timeout /t 2 >nul
 exit
+
 
 
